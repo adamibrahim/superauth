@@ -27,7 +27,7 @@ You can see working [demo](https://www.admin.hostato.com)
 $ composer require adamibrahim/superauth
 ```
 
-###### If you installing at laravel 5.5 or higher then you may go directly to Publish other wise you will need to edit composer.json and register the Service Provider
+###### If you installing at laravel 5.5 or higher then you may go directly to Publish other wise you will need to edit composer.json, register the Service Provider and the middleware
 
 ##### composer.json
 
