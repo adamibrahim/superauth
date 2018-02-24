@@ -21,6 +21,12 @@
 
 You can see working [demo](https://www.admin.hostato.com)
 
+## Login / profile Routes 
+- /login
+- /profile
+- /admin/login
+- /admin/dashboard
+
 ## Install
 
 ``` bash
