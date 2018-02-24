@@ -46,6 +46,14 @@ At file config/app.php register service provider under * Package Service Provide
 ``` bash
 Adam\Superauth\SuperauthServiceProvider::class,
 ```
+##### Middleware 
+
+if you are using Laravel version lower than 5.5 then you need to register the moderators middleware at your App\Http\Kernel.php
+ - At protected $routeMiddleware = [ ] array add the below code 
+
+``` bash
+'moderators' => \Adam\Superauth\Middleware\Moderators::class,
+```
 
 ##### Publishing
 
@@ -71,7 +79,7 @@ $ php artisan db:seed --class=Adam\Superauth\database\seeds\RolesTableSeeder
 ```
 
 ### Artisan Seed Error
-If you receive this Error: 
+If you receive Class not found Error: 
 ###### ReflectionException : Class Adam\Superauth\database\seeds\RolesTableSeeder does not exist
 Then you may need to dump-autoload by running this command 
 ``` bash
@@ -83,6 +91,7 @@ Then run the seeding command once again
 ``` bash
 $ php artisan db:seed --class=Adam\Superauth\database\seeds\RolesTableSeeder
 ```
+
 ##### Job Queues
 
 I'm Using Queues to send emails (speed up the app) 

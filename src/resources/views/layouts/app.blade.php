@@ -54,6 +54,21 @@
                                 </div>
                             </li>
                         @endguest
+                        @if (($languages)->count() > 1)
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <img src="{{ asset('img/flags/'.$lang->flag) }}"> {{ $lang->abbr }}<span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    @foreach($languages as $language)
+                                        <a href="{{ route('language.change', $language->abbr) }}" class="dropdown-item">
+                                            <img src="{{ asset('img/flags/'.$language->flag) }}"> {{$language->name}}
+                                        </a>
+                                    @endforeach
+                                </div>
+                            </li>
+                        @endif
                     </ul>
                 </div>
             </div>
