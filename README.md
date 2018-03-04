@@ -22,7 +22,7 @@
 
 - Demo account  
 - Username : admin@example.com
-- Password : admin
+- Password : 123456
 
 You can see working [demo](http://admin.hostato.com)
 
