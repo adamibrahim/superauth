@@ -19,7 +19,7 @@
 
 ## Demo
 
-You can see working [demo](https://www.admin.hostato.com)
+You can see working [demo](http://admin.hostato.com)
 
 ## Login / profile Routes 
 - /login
@@ -33,7 +33,7 @@ You can see working [demo](https://www.admin.hostato.com)
 $ composer require adamibrahim/superauth
 ```
 
-###### If you installing at laravel 5.5 or higher then you may go directly to Publish other wise you will need to edit composer.json, register the Service Provider and the middleware
+###### If you are installing at laravel 5.5 or higher then you may go directly to Publish other wise you will need to edit composer.json, register the Service Provider and the middleware
 
 ##### composer.json
 
