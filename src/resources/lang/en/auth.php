@@ -50,6 +50,7 @@ return [
     'followTheBelowLinkToResetYourPassword' => 'Follow the below link to reset your password',
     'dashboard' => 'Dashboard',
     'admin' => 'Admin',
+	'adminDashboard' =>'Admin Dashboard',
     'youHaveLoggedOut' => 'You have logged out!',
     'youNeedToLoginToAccessThisPage' => 'You need to login to access this page!.',
     'youHaveNoAccessPermissionToThisPage' => 'You have no access permission to this page!.',
