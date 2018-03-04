@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
+use Adam\Superauth\Models\Role;
 
 class RegisterController extends Controller
 {
@@ -81,7 +82,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'confirm_token' => str_random(25),
         ]);
-        $user->roles()->attach(User::ROLE_USER);
+        $user->roles()->attach(Role::ROLE_USER);
 
         $user->sendConfirmationEmail(route('confirm.token', $user->confirm_token));
         return $user;

@@ -20,9 +20,9 @@
 
 ## Demo
 
-Demo account  
-Username : Admin
-Password : admin
+- Demo account  
+- Username : admin@example.com
+- Password : admin
 
 You can see working [demo](http://admin.hostato.com)
 
