@@ -14,7 +14,7 @@ class DashboardController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('moderators');
+        $this->middleware('moderators');
     }
 
     /**
