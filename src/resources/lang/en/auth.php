@@ -54,4 +54,12 @@ return [
     'youHaveLoggedOut' => 'You have logged out!',
     'youNeedToLoginToAccessThisPage' => 'You need to login to access this page!.',
     'youHaveNoAccessPermissionToThisPage' => 'You have no access permission to this page!.',
+    'testUpdatingYourRoles' => 'Test updating your roles',
+    'errorAtLeastOneRoleHasToBeSelected'=>'Error ! at least one role has to be selected!',
+    'user'=>'User',
+    'moderator'=>'Moderator',
+    'update'=>'Update',
+    'rolesUpdateSuccess'=>'Role update Success!',
+    'welcomeToYour'=>'Welcome to your',
+
 ];

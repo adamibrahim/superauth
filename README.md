@@ -14,18 +14,25 @@
 - Using Laravel Queue Jobs 
 - Customizable Markdown template for notifications (Confirm Email and Reset password)
 - User soft delete (active/inactive)
+- Auth roles editing method for testing at profile and dashboard 
 - All content, message and alerts are localized, languages files in two languages (English, Russian), to insert language switcher please visit my localization easy package [adamibrahim/localization](https://github.com/adamibrahim/localization)
 
 
 ## Demo
 
+Demo account  
+Username : Admin
+Password : admin
+
 You can see working [demo](http://admin.hostato.com)
+
+
 
 ## Login / profile Routes 
 - /login
 - /profile
 - /admin/login
-- /admin/dashboard
+- /admin
 
 ## Install
 

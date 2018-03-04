@@ -1,4 +1,4 @@
-@extends('Superauth::layouts.app')
+@extends('Superauth::admin.layouts.app')
 
 @section('content')
 <div class="container">

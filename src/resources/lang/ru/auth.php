@@ -53,4 +53,11 @@ return [
     'youHaveLoggedOut' => 'Вы вышли из системы!.',
     'youNeedToLoginToAccessThisPage' => 'Авторизуйтесь для доступа к админ-панели!.',
     'youHaveNoAccessPermissionToThisPage' => 'У вас нет доступа к этой странице!.',
+    'testUpdatingYourRoles' => 'Тест измените ваши роли',
+    'errorAtLeastOneRoleHasToBeSelected'=>'ошибка! нужно выбрать хотя бы одну роль!',
+    'user'=>'пользователь',
+    'moderator'=>'Модератор',
+    'update'=>'Обновить',
+    'rolesUpdateSuccess'=>'Обновление роли Успех!',
+    'welcomeToYour'=>'Добро пожаловать в ваш',
 ];

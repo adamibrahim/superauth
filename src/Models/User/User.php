@@ -6,6 +6,7 @@ use Adam\Superauth\Notifications\ConfirmEmail;
 use Adam\Superauth\Notifications\ForgotPasswordEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Adam\Superauth\Models\Role;
 
 class User extends Authenticatable
 {
@@ -28,15 +29,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-    // User Roles
-
-    const ROLE_SUPER_ADMIN =    1;
-    const ROLE_ADMIN =          2;
-    const ROLE_EDITOR =         3;
-    const ROLE_USER =           4;
-    const ROLE_USER_FEATURED =  5;
-
 
     /**
      * The roles that belong to the user.
@@ -99,13 +91,26 @@ class User extends Authenticatable
     }
 
     /**
-     * Send the password reset notification.
+     * Check if user has a moderator role
      *
-     * @return void
+     * @return array
      */
     public function isModerator()
     {
         return $this->roles()->pluck('role_id')
-            ->intersect([self::ROLE_SUPER_ADMIN, self::ROLE_ADMIN, self::ROLE_EDITOR])->toArray();
+            ->intersect(Role::ROLE_MODERATORS)->toArray();
     }
+
+    /**
+     * Check if user has a role
+     *
+     * @param  integer  $role
+     * @return array
+     */
+    public function hasRole($role)
+    {
+        return in_array($role, $this->roles()->pluck('role_id')->toArray());
+    }
+
+
 }

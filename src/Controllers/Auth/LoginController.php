@@ -111,10 +111,7 @@ class LoginController extends Controller
             $redirect_path = route('admin.login');
         }
         $this->guard()->logout();
-        $request->session()->invalidate();
         return redirect($redirect_path);
-
-
     }
 
     /**
