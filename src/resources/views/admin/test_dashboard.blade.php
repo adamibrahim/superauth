@@ -18,7 +18,7 @@
                                 <input class="form-check-input" type="checkbox" id="inlineCheckbox{{ $role->id }}" name='role[]'
                                        value="{{ $role->id }}"{{ (Auth::user()->hasRole($role->id))? ' checked': '' }}>
                                 <label class="form-check-label" for="inlineCheckbox{{ $role->id }}">
-                                    {{ $role->name }} | {!!  ($role->moderatorRole())
+                                    {{ trans('Superauth::auth.'.$role->trimmedName()) }} | {!!  ($role->moderatorRole())
                                         ? '(<strong>'.trans('Superauth::auth.moderator').'</strong>)'
                                         : '(<strong>'.trans('Superauth::auth.user').'</strong>)'  !!}
                                 </label>
