@@ -1,12 +1,15 @@
 <?php
 
-namespace App\Http\Middleware;
-
-use Closure;
+namespace Adam\Superauth\Middleware;
 use Illuminate\Support\Facades\Auth;
+use Adam\Superauth\Traits\AuthRedirect;
+use Closure;
 
-class RedirectIfAuthenticated
+class Visitor
 {
+
+
+    use AuthRedirect;
     /**
      * Handle an incoming request.
      *
@@ -18,9 +21,10 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return (Auth::user()->isModerator()) ? redirect('/admin/dashboard') : redirect('profile');
+            return redirect($this->loginRedirect());
         }
 
         return $next($request);
     }
 }
+

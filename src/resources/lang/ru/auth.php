@@ -12,7 +12,6 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
     'needToConfirmYourEmailBeforeLogin' => 'Ошибка! Вам нужно подтвердить свое письмо перед входом в систему.',
     'emailConfirmation' => 'Подтверждение электонной почты!',
     'anEmailHasBeenSentTo' => 'E-mail был отправлен',
@@ -60,4 +59,6 @@ return [
     'update'=>'Обновить',
     'rolesUpdateSuccess'=>'Обновление роли Успех!',
     'welcomeToYour'=>'Добро пожаловать в ваш',
+    'superadmin' => 'Супер администратор',
+    'featured_user' => 'Избранные пользователи',
 ];

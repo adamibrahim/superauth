@@ -2,9 +2,9 @@
 
 namespace Adam\Superauth\Controllers\Auth;
 
+use Adam\Superauth\Traits\AuthRedirect;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\User;
 class LoginController extends Controller
@@ -21,13 +21,14 @@ class LoginController extends Controller
     */
 
     use AuthenticatesUsers;
+    use AuthRedirect;
 
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '';
 
     /**
      * Create a new controller instance.
@@ -36,7 +37,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+        $this->middleware('visitor')->except('logout');
     }
 
 
@@ -105,13 +106,9 @@ class LoginController extends Controller
      */
     public function logout(Request $request)
     {
-        $redirect_path = route('login');
-
-        if (Auth::user()->isModerator()) {
-            $redirect_path = route('admin.login');
-        }
+        $redirect = $this->logoutRedirect();
         $this->guard()->logout();
-        return redirect($redirect_path);
+        return redirect($redirect);
     }
 
     /**
@@ -121,8 +118,7 @@ class LoginController extends Controller
      */
     public function redirectPath()
     {
-        return Auth::user()->isModerator() ? route('admin.dashboard') : route('profile');
+        return $this->loginRedirect();
 
     }
-
 }

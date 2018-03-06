@@ -22,13 +22,19 @@ class SuperauthServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__.'/resources/views', 'Superauth');
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'Superauth');
         $router->aliasMiddleware('moderators', \Adam\Superauth\Middleware\Moderators::class);
+        $router->aliasMiddleware('visitor', \Adam\Superauth\Middleware\Visitor::class);
 
         $this->publishes([
             __DIR__.'/Models/User' => app_path(),
             __DIR__.'/resources/lang' => resource_path('lang/vendor/superauth'),
             __DIR__.'/resources/views' => resource_path('views/vendor/superauth'),
-            __DIR__.'/redirect_middleware' => app_path('Http/Middleware'),
+            __DIR__.'/config' => config_path(),
         ], 'Superauth');
+
+        $this->publishes([
+            __DIR__.'/resources/laravel' => resource_path('lang'),
+
+        ], 'Superauth:laravel');
     }
 
     /**
@@ -38,6 +44,6 @@ class SuperauthServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->mergeConfigFrom(__DIR__.'/config/superauth.php', 'superauth');
     }
 }

@@ -43,11 +43,11 @@
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
-                                    <a class="dropdown-item" href="{{ route('profile') }}" >
+                                    <a class="dropdown-item" href="{{ route('test.profile') }}" >
                                         {{ trans('Superauth::auth.profile') }}
                                     </a>
                                     @if (Auth::user()->isModerator())
-                                        <a class="dropdown-item" href="{{ route('admin.dashboard') }}" >
+                                        <a class="dropdown-item" href="{{ route('test.admin.dashboard') }}" >
                                             {{ trans('Superauth::auth.dashboard') }}
                                         </a>
                                     @endif

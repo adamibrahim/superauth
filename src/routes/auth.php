@@ -1,5 +1,5 @@
 <?php
-Route::group(['middleware' => ['web']], function() {
+Route::group(['middleware' => ['web', 'lang']], function() {
     // Authentication Routes...
     Route::get('login', 'Adam\Superauth\Controllers\Auth\LoginController@showLoginForm')->name('login');
     Route::post('login', 'Adam\Superauth\Controllers\Auth\LoginController@login');
@@ -17,5 +17,5 @@ Route::group(['middleware' => ['web']], function() {
     Route::post('password/email', 'Adam\Superauth\Controllers\Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
     Route::get('password/reset/{token}', 'Adam\Superauth\Controllers\Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'Adam\Superauth\Controllers\Auth\ResetPasswordController@reset');
-    Route::get('/profile', 'Adam\Superauth\Controllers\ProfileController@index')->name('profile');
+    Route::get('/test/profile', 'Adam\Superauth\Controllers\TestProfileController@index')->name('test.profile');
 });

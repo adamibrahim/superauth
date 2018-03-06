@@ -5,7 +5,7 @@ namespace Adam\Superauth\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use Adam\Superauth\Traits\AuthRedirect;
 
 class ResetPasswordController extends Controller
 {
@@ -21,6 +21,7 @@ class ResetPasswordController extends Controller
     */
 
     use ResetsPasswords;
+    use AuthRedirect;
 
     /**
      * Where to redirect users after resetting their password.
@@ -36,7 +37,7 @@ class ResetPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('visitor');
     }
 
     /**
@@ -63,7 +64,7 @@ class ResetPasswordController extends Controller
      */
     public function redirectPath()
     {
-        return Auth::user()->isModerator() ? route('admin.dashboard') : route('profile');
+        return $this->loginRedirect();
 
     }
 }

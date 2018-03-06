@@ -12,7 +12,6 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
     'needToConfirmYourEmailBeforeLogin' => 'Error !You need to Confirm your email before login.',
     'emailConfirmation' => 'Email Confirmation!',
     'anEmailHasBeenSentTo' => 'An Email has been sent to',
@@ -61,5 +60,7 @@ return [
     'update'=>'Update',
     'rolesUpdateSuccess'=>'Role update Success!',
     'welcomeToYour'=>'Welcome to your',
+    'superadmin' => 'Superadmin',
+    'featured_user' => 'Featured User',
 
 ];

@@ -24,4 +24,14 @@ class Role extends Model
     public function moderatorRole() {
         return in_array($this->id, self::ROLE_MODERATORS);
     }
+
+    /**
+     * get names in lower case and replace spaces with -
+     *
+     * @return string
+     */
+    public function trimmedName() {
+
+        return strtolower(str_replace(' ', '_', $this->name));
+    }
 }

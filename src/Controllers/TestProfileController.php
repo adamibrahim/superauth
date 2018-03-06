@@ -3,8 +3,9 @@
 namespace Adam\Superauth\Controllers;
 
 use App\Http\Controllers\Controller;
+use Adam\Superauth\Models\Role;
 
-class ProfileController extends Controller
+class TestProfileController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -23,6 +24,8 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        return view()->first(['profile', 'Superauth::profile']);
+        $rolse = Role::all();
+        return view()->first(['test_profile', 'Superauth::profile'])
+            ->with('roles', $rolse);
     }
 }

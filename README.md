@@ -8,9 +8,10 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 
 - Laravel 5.6 Authentication package with
-- Multi user type with roles (admin/editor/user/featured user)
+- Multi user type with roles (superadmin, admin, editor, user and featured user)
 - User redirect to proper page (profile / admin dashboard)
-- Registered user email confirmation 
+- Registered user email confirmation using trait (Traits\AuthRedirect)
+- User roles sync (include test views url /admin/test, /test/profile  )
 - Using Laravel Queue Jobs 
 - Customizable Markdown template for notifications (Confirm Email and Reset password)
 - User soft delete (active/inactive)
@@ -28,12 +29,13 @@ You can see working [demo](http://admin.hostato.com)
 
 
 
-## Login / profile Routes 
-- /login
-- /profile
-- /admin/login
-- /admin
-
+## Login / Profile / Dashboard Routes 
+``` bash
+- /login (user --not moderator-- login )
+- /test/profile (user --not moderator-- profile )
+- /admin/login (Moderator login)
+- /admin/test (Moderator dashboard)
+``` 
 ## Install
 
 ``` bash
@@ -61,11 +63,12 @@ Adam\Superauth\SuperauthServiceProvider::class,
 ```
 ##### Middleware 
 
-if you are using Laravel version lower than 5.5 then you need to register the moderators middleware at your App\Http\Kernel.php
+if you are using Laravel version lower than 5.5 then you need to register the moderators and Visitor middleware  at your App\Http\Kernel.php
  - At protected $routeMiddleware = [ ] array add the below code 
 
 ``` bash
 'moderators' => \Adam\Superauth\Middleware\Moderators::class,
+'visitor' => \Adam\Superauth\Middleware\Visitor::class,
 ```
 
 ##### Publishing
