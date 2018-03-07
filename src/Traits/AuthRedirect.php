@@ -12,7 +12,7 @@ trait AuthRedirect
      */
     public function loginRedirect()
     {
-        return Auth::user()->isModerator() ? route('admin.test.dashboard') : route('test.profile');
+        return Auth::user()->isModerator() ? route('admin.dashboard') : route('test.profile');
 
     }
 

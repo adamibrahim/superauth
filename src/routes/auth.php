@@ -18,4 +18,5 @@ Route::group(['middleware' => ['web', 'lang']], function() {
     Route::get('password/reset/{token}', 'Adam\Superauth\Controllers\Auth\ResetPasswordController@showResetForm')->name('password.reset');
     Route::post('password/reset', 'Adam\Superauth\Controllers\Auth\ResetPasswordController@reset');
     Route::get('/test/profile', 'Adam\Superauth\Controllers\TestProfileController@index')->name('test.profile');
+    Route::get('/profile', 'Adam\Superauth\Controllers\ProfileController@index')->name('profile');
 });

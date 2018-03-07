@@ -47,7 +47,7 @@
                                         {{ trans('Superauth::auth.profile') }}
                                     </a>
                                     @if (Auth::user()->isModerator())
-                                        <a class="dropdown-item" href="{{ route('test.admin.dashboard') }}" >
+                                        <a class="dropdown-item" href="{{ route('admin.test.dashboard') }}" >
                                             {{ trans('Superauth::auth.dashboard') }}
                                         </a>
                                     @endif

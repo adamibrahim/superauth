@@ -28,7 +28,7 @@ class TestDashboardController extends Controller
     public function index()
     {
         $rolse = Role::all();
-        return view()->first(['admin.test_dashboard', 'Superauth::admin.dashboard'])
+        return view()->first(['admin.test_dashboard', 'Superauth::admin.test_dashboard'])
             ->with('roles', $rolse);
     }
 

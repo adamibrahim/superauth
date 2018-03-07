@@ -25,7 +25,7 @@ class TestProfileController extends Controller
     public function index()
     {
         $rolse = Role::all();
-        return view()->first(['test_profile', 'Superauth::profile'])
+        return view()->first(['test_profile', 'Superauth::test_profile'])
             ->with('roles', $rolse);
     }
 }

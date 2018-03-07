@@ -111,6 +111,4 @@ class User extends Authenticatable
     {
         return in_array($role, $this->roles()->pluck('role_id')->toArray());
     }
-
-
 }
