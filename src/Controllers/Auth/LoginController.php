@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 class LoginController extends Controller
 {
     /*
@@ -37,7 +38,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('visitor')->except('logout');
+        $this->middleware('visitor')->except('logout', 'lock', 'lockScreen');
     }
 
 
@@ -109,6 +110,32 @@ class LoginController extends Controller
         $redirect = $this->logoutRedirect();
         $this->guard()->logout();
         return redirect($redirect);
+    }
+
+    /**
+     * Log the user out of the application.and return to lock Screen
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function lock(Request $request)
+    {
+        $user = Auth::user()->id;
+        $this->guard()->logout();
+        return redirect()
+            ->route('lock.screen', $user);
+    }
+
+    /**
+     * Show view Lock Screen with
+     *
+     * @param  $user
+     * @return view
+     */
+    public function lockScreen(User $user)
+    {
+        return view()->first(['auth.lock', 'Superauth::auth.lock'])
+            ->with('user', $user);
     }
 
     /**

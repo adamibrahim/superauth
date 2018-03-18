@@ -5,6 +5,12 @@ Route::group(['middleware' => ['web', 'lang']], function() {
     Route::post('login', 'Adam\Superauth\Controllers\Auth\LoginController@login');
     Route::post('logout', 'Adam\Superauth\Controllers\Auth\LoginController@logout')->name('logout');
 
+    Route::prefix(config('superauth.admin_prefix'))
+        ->group(function() {
+            Route::post('lock', 'Adam\Superauth\Controllers\Auth\LoginController@lock')->name('lock');
+            Route::get('lock/{user}', 'Adam\Superauth\Controllers\Auth\LoginController@lockScreen')->name('lock.screen');
+        });
+
     // Registration Routes...
     Route::get('register', 'Adam\Superauth\Controllers\Auth\RegisterController@showRegistrationForm')->name('register');
     Route::post('register', 'Adam\Superauth\Controllers\Auth\RegisterController@register');
