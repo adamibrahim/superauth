@@ -50,9 +50,17 @@
                                             {{ trans('Superauth::auth.dashboard') }}
                                         </a>
                                     @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                    <a href="{{ route('lock') }} " class="dropdown-item"
+                                       onclick="event.preventDefault(); document.getElementById('lock-form').submit();">
+                                        {{ trans('Superauth::auth.lockScreen') }}
+                                    </a>
+
+                                    <form id="lock-form" action="{{ route('lock') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+
+                                    <a href="{{ route('logout') }}" class="dropdown-item"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                         {{ trans('Superauth::auth.logout') }}
                                     </a>
 

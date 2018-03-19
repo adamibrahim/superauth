@@ -134,7 +134,7 @@ class LoginController extends Controller
      */
     public function lockScreen(User $user)
     {
-        return view()->first(['auth.lock', 'Superauth::auth.lock'])
+        return view()->first(['admin.auth.lock', 'Superauth::admin.auth.lock'])
             ->with('user', $user);
     }
 

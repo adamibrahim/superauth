@@ -62,5 +62,7 @@ return [
     'welcomeToYour'=>'Welcome to your',
     'superadmin' => 'Superadmin',
     'featured_user' => 'Featured User',
+    'not' => 'Not',
+    'lockScreen' => 'Lock',
 
 ];
