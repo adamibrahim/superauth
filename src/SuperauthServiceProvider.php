@@ -23,6 +23,7 @@ class SuperauthServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__.'/resources/lang', 'Superauth');
         $router->aliasMiddleware('moderators', \Adam\Superauth\Middleware\Moderators::class);
         $router->aliasMiddleware('visitor', \Adam\Superauth\Middleware\Visitor::class);
+        $router->aliasMiddleware('lang', \Adam\Superauth\Middleware\Localization::class);
 
         $this->publishes([
             __DIR__.'/Models/User' => app_path(),
